@@ -19,6 +19,15 @@ class Contact
 		end
 	end
 
+	define_method(:delete_number) do |number|
+		@phones.each() do |phone|
+    	if phone.number() == number
+      	@phones.delete(phone)
+    end
+  end
+
+	end
+
 	define_method(:numbers) do
 		numbers = []
 		@phones.each() do |phone|
@@ -73,6 +82,14 @@ class Contact
 
 	define_singleton_method(:find_name) do |number_to_search|
 		Contact.search({ :number => number_to_search }).name()
+	end
+
+	define_singleton_method(:exists?) do |name_to_search|
+		if Contact.search({ :name => name_to_search })
+			true
+		else
+			false
+		end
 	end
 
 end

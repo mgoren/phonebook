@@ -4,7 +4,7 @@
 	<% Contact.all().each() do |contact| %>
 		<a href="/edit/<%= contact.name() %>"><%= contact.name() %></a>
 		<% if contact.phones() == [] %>
-			(no numbers)
+			- <span class="missing">no number listed</span>
 		<% end %>
 		<% index = 0 %>
 		<% contact.phones().each() do |phone| %>

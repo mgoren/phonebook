@@ -74,6 +74,10 @@ hr {
   background-color: red;
 }
 
+.missing {
+  font-style: italic;
+}
+
 @media (max-width: 850px) {
   body {
     background-color: #FFF6CD;

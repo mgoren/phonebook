@@ -13,7 +13,7 @@ post("/add") do
 	name = params.fetch('name')
   number = params.fetch('number')
   type = params.fetch('type')
-  if name != "" && number != "" && type != "" && Contact.search({ :name => name }) == nil
+  if name != "" && number != "" && type != "" && Contact.exists?(name) == false
     contact = Contact.new(name)
     contact.add_number(number, type)
   end
@@ -43,12 +43,7 @@ end
 get("/delete_number/:name/:number") do
   name = params['name']
   number = params['number']
-  contact = Contact.search({ :name => name, :number => number })
-  contact.phones().each() do |phone|
-    if phone.number() == number
-      contact.phones().delete(phone)
-    end
-  end
+  Contact.search({ :name => name, :number => number }).delete_number(number)
   url = "/edit/" + name
 	redirect(url)
 end

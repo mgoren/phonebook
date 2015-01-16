@@ -127,6 +127,26 @@ describe(Contact) do
 		end
 	end
 
+	describe('#exists?') do
+		it("returns true if user with given name already exists in phone book") do
+			me = Contact.new("Mike")
+			expect(Contact.exists?("Mike")).to(eq(true))
+		end
+	end
+
+	describe('#delete_number') do
+		it("deletes a given number from contact this method is called on") do
+			me = Contact.new("Mike")
+			me.add_number("444-444-4444", "mobile")
+			me.add_number("555-555-5555", "home")
+			me.delete_number("444-444-4444")
+			expect(me.numbers()).to(eq(["555-555-5555"]))
+
+		end
+	end
+
+
+
 
 
 end
