@@ -13,8 +13,10 @@ post("/add") do
 	name = params.fetch('name')
   number = params.fetch('number')
   type = params.fetch('type')
-  contact = Contact.new(name)
-  contact.add_number(number, type)
+  if name != "" && number != "" && type != "" && Contact.search({ :name => name }) == nil
+    contact = Contact.new(name)
+    contact.add_number(number, type)
+  end
 	redirect("/")
 end
 
@@ -32,7 +34,7 @@ get("/reset") do
 end
 
 get("/edit/:name") do
-  @name = params.fetch('name')
+  @name = params['name']
 	erb(:edit)
 end
 

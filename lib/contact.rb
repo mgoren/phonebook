@@ -13,8 +13,10 @@ class Contact
 	end
 
 	define_method(:add_number) do |number, type|
-		phone = Phone.new(number, type)
-		@phones.push(phone)
+		if number != "" && type != ""
+			phone = Phone.new(number, type)
+			@phones.push(phone)
+		end
 	end
 
 	define_method(:numbers) do
@@ -72,11 +74,5 @@ class Contact
 	define_singleton_method(:find_name) do |number_to_search|
 		Contact.search({ :number => number_to_search }).name()
 	end
-
-
-
-
-
-
 
 end

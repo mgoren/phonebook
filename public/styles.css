@@ -43,7 +43,7 @@ h2 {
 
 .form-control {
   /*clear: left;*/
-  float: left;
+/*  float: left;*/
   width: 65%;
   margin-top: 5px;
 }

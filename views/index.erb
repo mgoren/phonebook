@@ -2,11 +2,17 @@
 
 <div class="entry">
 	<% Contact.all().each() do |contact| %>
-		Name: <a href="/edit/<%= contact.name() %>"><%= contact.name() %></a><br>
-		Numbers:
+		<a href="/edit/<%= contact.name() %>"><%= contact.name() %></a>
+		<% index = 0 %>
 		<% contact.phones().each() do |phone| %>
-			<%= phone.number() %> (<%= phone.type() %>)<br>
+			<% if index == 0 %>
+				- <%= phone.number() %> (<%= phone.type() %>)
+				<% index += 1 %>
+			<% else %>
+				, <%= phone.number() %> (<%= phone.type() %>)
+			<% end %>
 		<% end %>
+		<br>
 	<% end %>
 </div>
 
