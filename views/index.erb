@@ -1,0 +1,45 @@
+<h1>Phone Book</h1>
+
+<div class="entry">
+	<% Contact.all().each() do |contact| %>
+		Name: <%= contact.name() %><br>
+		Numbers:
+		<% contact.phone().numbers().each() do |number| %>
+			<%= number %><br>
+		<% end %>
+	<% end %>
+</div>
+
+<div class = "add">
+	<h2>Add entry:</h2>
+	<form action="/add" method="POST">
+		<div class="form-group">
+			<label class="form-label" for="name">Name:</label>
+			<input type="text" id="name" name="name" class="form-control" autofocus>
+		</div>
+		<div class="form-group">
+			<label class="form-label" for="number">Number:</label>
+			<input type="text" id="number" name="number" class="form-control">
+		</div>
+		<button type="submit" class="button-go">Add entry</button>
+	</form>
+</div>
+
+<div class = "delete">
+<h2>Delete entry by name or number:</h2>
+	<form action="/delete" method="POST">
+		<div class="form-group">
+			<label class="form-label" for="name">Name to delete:</label>
+			<input type="text" id="name" name="name" class="form-control" autofocus>
+		</div>
+		<div class="form-group">
+			<label class="form-label" for="number">Number to delete:</label>
+			<input type="text" id="number" name="number" class="form-control">
+		</div>
+		<button type="submit" class="button-reset">Delete entry</button>
+	</form>
+</div>
+
+<div class = "reset">
+	<a href="/reset"><button class="button-reset">Erase all entries!</button></a>
+</div>

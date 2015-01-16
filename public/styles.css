@@ -1,0 +1,82 @@
+body {
+  background-color: #9775AA;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.container {
+  background-color: #FFF6CD;
+  height: 40%;
+  width: 40%;
+  margin: 150px auto 0 auto;
+  padding: 15px;
+  border: 3px solid gray;
+  border-radius: 15px;
+}
+
+.add {
+  padding-bottom: 50px;
+}
+
+.delete {
+  margin-top: 80px;
+}
+
+.reset {
+
+}
+
+
+.form-label {
+  margin-top: 10px;
+  clear: left;
+  float: left;
+  width: 70px;
+
+}
+
+.form-control {
+  /*clear: left;*/
+  float: left;
+  width: 65%;
+  margin-top: 5px;
+}
+
+.button-go {
+  margin-top: 5px;
+  padding: 5px 10px;
+  margin-left: 15px;
+  float: left;
+  border-radius: 15px;
+  background-color: #764A8E;
+	border: 1px solid #666;
+	color:#FFFEF6;
+	text-decoration:none;
+}
+
+.button-reset {
+  padding: 5px 10px;
+  margin-left: 15px;
+  float: left;
+  border-radius: 15px;
+  background-color: red;
+  border: 1px solid #666;
+  color:#FFFEF6;
+  text-decoration:none;
+}
+
+/*.btn-danger {
+  clear: both;
+  float: left;
+}
+
+.btn {
+  margin: 10px;
+}
+*/

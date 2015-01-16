@@ -18,7 +18,9 @@ class Contact
 	end
 
 	define_method(:delete_contact) do
-		@@contacts.delete(self)
+		if @@contacts.include?(self)
+			@@contacts.delete(self)
+		end
 	end
 
 	define_singleton_method(:list_all_names) do
