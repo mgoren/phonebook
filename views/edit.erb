@@ -1,0 +1,21 @@
+<h1><%= @name %></h1>
+<% contact = Contact.search({ :name => @name }) %>
+<% contact.phones().each() do |phone| %>
+	<%= phone.number() %> (<%= phone.type() %>) (<a href="/delete_number/<%= @name %>/<%= phone.number() %>">x</a>)<br>
+<% end %>
+
+<h2>Add number to this entry:</h2>
+<form action="/add_number/<%= @name %>" method="GET">
+	<div class="form-group">
+		<label class="form-label" for="number">Number:</label>
+		<input type="text" id="number" name="number" class="form-control" autofocus>
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="type">Type:</label>
+		<input type="text" id="type" name="type" class="form-control">
+	</div>
+	<button type="submit" class="button-go">Add number</button>
+</form>
+
+<a href="/delete_entry/<%= @name %>"><button class="button-reset">Delete entire entry!</button></a>
+
