@@ -36,15 +36,14 @@ class Contact
 		return nil
 	end
 
-	# define_singleton_method(:find_number) do |name_to_search|
-	# 	id = @@Contact.find({ :name => name_to_search })
-	# 	@@contacts.each() do |contact|
-	# 		if contact.id() == id
-	# 			return contact.name()
-	# 		end
-	# 	end
-	# end
+	define_singleton_method(:find_number) do |name_to_search|
+		Contact.search({ :name => name_to_search }).number()
+	end
 
+	define_singleton_method(:find_name) do |number_to_search|
+		Contact.search({ :number => number_to_search }).name()
+	end
+	
 
 
 

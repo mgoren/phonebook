@@ -55,15 +55,23 @@ describe(Contact) do
 
 	end
 
-	# describe('find_number') do
-	# 	it("returns number given name") do
-	# 		me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
-	# 		friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
-	# 		friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
-	# 		expect(Contact.search({ :name => "Dan" })).to(eq("222-222-2222"))
-	# 	end
-	# end
+	describe('find_number') do
+		it("returns number given name") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			expect(Contact.find_number("Dan")).to(eq("222-222-2222"))
+		end
+	end
 
+	describe('find_name') do
+		it("returns name given number") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			expect(Contact.find_name("314-159-2653")).to(eq("Mike"))
+		end
+	end
 
 
 
