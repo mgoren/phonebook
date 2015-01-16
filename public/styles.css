@@ -23,9 +23,10 @@ hr {
 }
 
 .container {
+  
   background-color: #FFF6CD;
   width: 600px;
-  margin: 150px auto 0 auto;
+  margin: 50px auto 0 auto;
   padding: 15px;
   border: 3px solid gray;
   border-radius: 15px;
@@ -75,7 +76,7 @@ hr {
 
 @media (max-width: 850px) {
   body {
-    background-color: #FFF2CB;
+    background-color: #FFF6CD;
   }
   .container {
     margin: 0;
