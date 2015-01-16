@@ -4,34 +4,36 @@ body {
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: strong;
+}
+
+hr {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+  background: #999;
 }
 
 .container {
   background-color: #FFF6CD;
-  height: 40%;
-  width: 40%;
+  width: 600px;
   margin: 150px auto 0 auto;
   padding: 15px;
   border: 3px solid gray;
   border-radius: 15px;
 }
 
-.add {
-  padding-bottom: 50px;
+.entry {
+  margin-left: 20px;
 }
-
-.delete {
-  margin-top: 80px;
-}
-
-.reset {
-
-}
-
 
 .form-label {
   margin-top: 10px;
@@ -42,41 +44,31 @@ h2 {
 }
 
 .form-control {
-  /*clear: left;*/
-/*  float: left;*/
   width: 65%;
   margin-top: 5px;
 }
 
-.button-go {
-  margin-top: 5px;
-  padding: 5px 10px;
-  margin-left: 15px;
-  float: left;
+.button {  
   border-radius: 15px;
-  background-color: #764A8E;
-	border: 1px solid #666;
-	color:#FFFEF6;
-	text-decoration:none;
-}
-
-.button-reset {
-  padding: 5px 10px;
-  margin-left: 15px;
-  float: left;
-  border-radius: 15px;
-  background-color: red;
   border: 1px solid #666;
   color:#FFFEF6;
   text-decoration:none;
+  padding: 5px 10px;
+
 }
 
-/*.btn-danger {
-  clear: both;
+.button-add {
+  margin-left: 242px;
+  background-color: green;
+}
+
+.button-back {
   float: left;
+  background-color: #764A8E;
 }
 
-.btn {
-  margin: 10px;
+.button-reset {
+  float: right;
+  margin-left: 15px;
+  background-color: red;
 }
-*/

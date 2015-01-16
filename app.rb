@@ -25,7 +25,8 @@ get("/add_number/:name") do
   number = params.fetch('number')
   type = params.fetch('type')
   Contact.search({ :name => name }).add_number(number, type)
-  redirect("/")
+  url = "/edit/" + name
+  redirect(url)
 end
 
 get("/reset") do
@@ -48,7 +49,8 @@ get("/delete_number/:name/:number") do
       contact.phones().delete(phone)
     end
   end
-	redirect("/")
+  url = "/edit/" + name
+	redirect(url)
 end
 
 get("/delete_entry/:name") do

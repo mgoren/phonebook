@@ -3,6 +3,9 @@
 <div class="entry">
 	<% Contact.all().each() do |contact| %>
 		<a href="/edit/<%= contact.name() %>"><%= contact.name() %></a>
+		<% if contact.phones() == [] %>
+			(no numbers)
+		<% end %>
 		<% index = 0 %>
 		<% contact.phones().each() do |phone| %>
 			<% if index == 0 %>
@@ -16,8 +19,10 @@
 	<% end %>
 </div>
 
+<hr>
+
 <div class = "add">
-	<h2>Add entry:</h2>
+	<h2>Add Entry</h2>
 	<form action="/add" method="POST">
 		<div class="form-group">
 			<label class="form-label" for="name">Name:</label>
@@ -31,10 +36,12 @@
 			<label class="form-label" for="type">Type:</label>
 			<input type="text" id="type" name="type" class="form-control">
 		</div>
-		<button type="submit" class="button-go">Add entry</button>
+		<button type="submit" class="button button-add">Add entry</button>
 	</form>
 </div>
 
+<br><hr>
+
 <div class = "reset">
-	<a href="/reset"><button class="button-reset">Erase all entries!</button></a>
+	<a href="/reset"><button class="button button-reset">Erase all entries!</button></a>
 </div>

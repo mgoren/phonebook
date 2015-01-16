@@ -1,8 +1,12 @@
-<h1><%= @name %></h1>
-<% contact = Contact.search({ :name => @name }) %>
-<% contact.phones().each() do |phone| %>
-	<%= phone.number() %> (<%= phone.type() %>) (<a href="/delete_number/<%= @name %>/<%= phone.number() %>">x</a>)<br>
-<% end %>
+<div class = "entry">
+	<h1><%= @name %></h1>
+	<% contact = Contact.search({ :name => @name }) %>
+	<% contact.phones().each() do |phone| %>
+		<%= phone.number() %> (<%= phone.type() %>) (<a href="/delete_number/<%= @name %>/<%= phone.number() %>">x</a>)<br>
+	<% end %>
+</div>
+
+<hr>
 
 <h2>Add number to this entry:</h2>
 <form action="/add_number/<%= @name %>" method="GET">
@@ -14,7 +18,10 @@
 		<label class="form-label" for="type">Type:</label>
 		<input type="text" id="type" name="type" class="form-control">
 	</div>
-	<button type="submit" class="button-go">Add number</button>
+	<button type="submit" class="button button-add">Add number</button>
 </form>
 
-<a href="/delete_entry/<%= @name %>"><button class="button-reset">Delete entire entry!</button></a>
+<hr>
+
+<a href="/"><button class="button button-back">Back</button></a>
+<a href="/delete_entry/<%= @name %>"><button class="button button-reset">Delete entry</button></a>
