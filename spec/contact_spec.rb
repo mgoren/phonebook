@@ -82,6 +82,18 @@ describe(Contact) do
 		end
 	end
 
+	describe('delete_contact') do
+		it("deletes self from @@contacts") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			me.phone().add_number("444-444-4444")
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			me.delete_contact()
+			expect(Contact.search({ :name => "Mike" })).to(eq(nil))
+		end
+	end
+
+
 
 
 end

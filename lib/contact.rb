@@ -17,12 +17,20 @@ class Contact
 		@phone.numbers()
 	end
 
+	define_method(:delete_contact) do
+		@@contacts.delete(self)
+	end
+
 	define_singleton_method(:list_all_names) do
 		names = []
 		@@contacts.each() do |contact|
 			names.push(contact.name())
 		end
 		names
+	end
+
+	define_singleton_method(:all) do
+		@@contacts
 	end
 
 	define_singleton_method(:clear) do
