@@ -2,10 +2,10 @@
 
 <div class="entry">
 	<% Contact.all().each() do |contact| %>
-		Name: <%= contact.name() %><br>
+		Name: <%= contact.name() %> (<a href="/edit">edit</a>)<br>
 		Numbers:
-		<% contact.phone().numbers().each() do |number| %>
-			<%= number %><br>
+		<% contact.phones().each() do |phone| %>
+			<%= phone.number() %> (<%= phone.type() %>)<br>
 		<% end %>
 	<% end %>
 </div>
@@ -21,12 +21,16 @@
 			<label class="form-label" for="number">Number:</label>
 			<input type="text" id="number" name="number" class="form-control">
 		</div>
+		<div class="form-group">
+			<label class="form-label" for="type">Type:</label>
+			<input type="text" id="type" name="type" class="form-control">
+		</div>
 		<button type="submit" class="button-go">Add entry</button>
 	</form>
 </div>
 
 <div class = "delete">
-<h2>Delete entry by name or number:</h2>
+<h2>Delete entry or number:</h2>
 	<form action="/delete" method="POST">
 		<div class="form-group">
 			<label class="form-label" for="name">Name to delete:</label>

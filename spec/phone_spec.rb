@@ -4,25 +4,21 @@ require('contact')
 
 describe(Phone) do
 
-	describe('#numbers') do
-		it("returns array of all numbers in that phone book entry") do
-			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
-			me.phone().add_number("555-555-5555")
-			me.phone().add_number("999-999-9999")
-			expect(me.phone().numbers()).to(eq(["314-159-2653", "555-555-5555", "999-999-9999"]))
+	describe('number') do
+		it("returns number") do
+			me = Contact.new("Mike")
+			me.add_number("555-555-5555", "mobile")
+			expect(me.phones()[0].number()).to(eq("555-555-5555"))
 		end
 	end
 
-	describe('#delete_number') do
-		it("deletes number from array of numbers when called on that phone book entry") do
-						me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
-			me.phone().add_number("555-555-5555")
-			me.phone().add_number("999-999-9999")
-			me.phone().delete_number("555-555-5555")
-			expect(me.phone().numbers()).to(eq(["314-159-2653", "999-999-9999"]))
+	describe('type') do
+		it("returns type") do
+			me = Contact.new("Mike")
+			me.add_number("555-555-5555", "mobile")
+			expect(me.phones()[0].type()).to(eq("mobile"))
 		end
 	end
-
 
 
 end

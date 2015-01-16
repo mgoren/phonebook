@@ -1,19 +1,10 @@
 class Phone
 
-	attr_reader(:numbers)
+	attr_reader(:number, :type)
 
-	define_method(:initialize) do
-		@numbers = []
+	define_method(:initialize) do |number, type|
+		@number = number
+		@type = type
 	end
-
-	define_method(:add_number) do |number|
-		@numbers.push(number)
-	end
-
-	define_method(:delete_number) do |number|
-		@numbers.delete(number)
-	end
-
-
 
 end

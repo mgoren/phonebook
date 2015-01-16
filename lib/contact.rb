@@ -2,19 +2,27 @@ class Contact
 	@@contacts = []
 	@@id = 0
 
-	attr_reader(:name, :id, :phone)
+	attr_reader(:name, :phones, :id)
 
-	define_method(:initialize) do |attributes|
-		@name = attributes.fetch(:name)
-		@phone = Phone.new()
-		@phone.add_number(attributes.fetch(:number))
+	define_method(:initialize) do |name|
+		@name = name
+		@phones = []
 		@@id += 1
 		@id = @@id
 		@@contacts.push(self)
 	end
 
+	define_method(:add_number) do |number, type|
+		phone = Phone.new(number, type)
+		@phones.push(phone)
+	end
+
 	define_method(:numbers) do
-		@phone.numbers()
+		numbers = []
+		@phones.each() do |phone|
+			numbers.push(phone.number())
+		end
+		numbers
 	end
 
 	define_method(:delete_contact) do
@@ -44,15 +52,21 @@ class Contact
 		name_to_search = attributes[:name]
 		number_to_search = attributes[:number]
 		@@contacts.each() do |contact|
-			if contact.name() == name_to_search || contact.phone().numbers().include?(number_to_search)
+			if contact.name() == name_to_search
 				return contact
+			else
+				contact.phones().each() do |phone|
+					if phone.number() == number_to_search
+						return contact
+					end
+				end
 			end
 		end
 		return nil
 	end
 
 	define_singleton_method(:find_numbers) do |name_to_search|
-		Contact.search({ :name => name_to_search }).phone().numbers()
+		Contact.search({ :name => name_to_search }).numbers()
 	end
 
 	define_singleton_method(:find_name) do |number_to_search|

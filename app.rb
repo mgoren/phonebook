@@ -12,7 +12,9 @@ end
 post("/add") do
 	name = params.fetch('name')
   number = params.fetch('number')
-  contact = Contact.new({ :name => name, :number => number })
+  type = params.fetch('type')
+  contact = Contact.new(name)
+  contact.add_number(number, type)
 	redirect("/")
 end
 
@@ -21,18 +23,20 @@ get("/reset") do
 	redirect("/")
 end
 
+get("/edit") do
+	
+	erb(:edit)
+end
+
+
 post("/delete") do
   name = params['name']
   number = params['number']
-  if name == ""
-    name = nil
+  if number == "" # delete whole contact
+    Contact.search({ :name => name }).delete_contact()
+  elsif name == "" # delete just this number, not whole contact
+    contact = Contact.search({ :number => number })
   end
-  if number == ""
-    number = nil
-  end
-	contact = Contact.search({ :name => name, :number => number})
-	if contact
-		contact.delete_contact()
-	end
+  
 	redirect("/")
 end
