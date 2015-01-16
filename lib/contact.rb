@@ -28,14 +28,24 @@ class Contact
 	define_singleton_method(:search) do |attributes|
 		name_to_search = attributes[:name]
 		number_to_search = attributes[:number]
-		id = 0
 		@@contacts.each() do |contact|
 			if contact.name() == name_to_search || contact.number() == number_to_search
-				id = contact.id()
+				return contact
 			end
 		end
-		id
+		return nil
 	end
+
+	# define_singleton_method(:find_number) do |name_to_search|
+	# 	id = @@Contact.find({ :name => name_to_search })
+	# 	@@contacts.each() do |contact|
+	# 		if contact.id() == id
+	# 			return contact.name()
+	# 		end
+	# 	end
+	# end
+
+
 
 
 
