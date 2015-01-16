@@ -30,6 +30,32 @@ describe(Contact) do
 		end
 	end
 
+	describe('.search') do
+		
+		it("returns Contact's id given name") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			expect(Contact.search({ :name => "Dan" })).to(eq(3))
+		end
+
+		it("returns Contact's id given number") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			expect(Contact.search({ :number => "222-222-2222" })).to(eq(3))
+		end
+
+		it("returns 0 if contact not found") do
+			me = Contact.new({ :name => "Mike", :number => "314-159-2653" })
+			friend = Contact.new({ :name => "Anna", :number => "123-456-7890" })
+			friend2 = Contact.new({ :name => "Dan", :number => "222-222-2222" })
+			expect(Contact.search({ :name => "not in phone book" })).to(eq(0))
+		end
+
+	end
+
+
 
 
 end
