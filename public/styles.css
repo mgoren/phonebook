@@ -1,5 +1,5 @@
 body {
-  background-color: #9775AA;
+  background-color: #C5A3CB;
 }
 
 h1 {
@@ -23,7 +23,6 @@ hr {
 }
 
 .container {
-  
   background-color: #FFF6CD;
   width: 600px;
   margin: 50px auto 0 auto;
@@ -41,7 +40,6 @@ hr {
   clear: left;
   float: left;
   width: 70px;
-
 }
 
 .form-control {
@@ -55,12 +53,11 @@ hr {
   color:#FFFEF6;
   text-decoration:none;
   padding: 5px 10px;
-
 }
 
 .button-add {
   margin-left: 40%;
-  background-color: green;
+  background-color: #2D882D;
 }
 
 .button-back {
@@ -71,7 +68,7 @@ hr {
 .button-reset {
   float: right;
   margin-left: 15px;
-  background-color: red;
+  background-color: #AA3939;
 }
 
 .missing {
